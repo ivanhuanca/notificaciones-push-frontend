@@ -1,5 +1,19 @@
-# Vue 3 + Vite
+# Vue Push Demo (integración con Laravel API)
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Proyecto Vue 3 (Vite) mínimo preparado para suscripciones Web Push y para integrarse con un backend Laravel:
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Libreria php
+  - `minishlink/web-push ^10.0`.
+
+## Reemplaza
+  - `VAPID_PUBLIC_PLACEHOLDER` en PushSubscribe.vue
+
+## Endpoints esperados en Laravel API:
+  - `POST /api/save-subscription` -> guarda la suscripción
+  - `POST /api/send-notification` -> dispara una notificación
+
+Arrancar:
+1. npm install
+2. npm run dev
+
+Service worker: `public/sw.js` (sirve desde la raíz). En producción necesitas HTTPS.
