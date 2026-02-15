@@ -1,7 +1,8 @@
 <script setup>
+
 import { ref } from 'vue'
 import PushSubscribe from './components/PushSubscribe.vue'
-import Login from './components/Login.vue'
+import ListLogin from './components/ListLogin.vue'
 
 const user = ref(null)
 // cargar user desde localStorage (si existe)
@@ -18,8 +19,9 @@ function logout() {
 
 <template>
   <div>
+
     <template v-if="!user">
-      <Login @authenticated="onAuthenticated" />
+      <ListLogin @authenticated="onAuthenticated" />
     </template>
 
     <template v-else>
@@ -27,7 +29,7 @@ function logout() {
         <div style="display:flex;gap:0.5rem;align-items:center">
           <small style="color:#666">Conectado como <strong>{{ user.email }}</strong></small>
           <button @click="logout"
-            style="padding:0.35rem 0.6rem;border-radius:6px;border:1px solid #e6e6e6;background:#fff;cursor:pointer">Cerrar
+            style="padding:0.35rem 0.6rem;border-radius:6px;border:1px solid #e6e6e6;cursor:pointer">Cerrar
             sesión</button>
         </div>
       </header>
